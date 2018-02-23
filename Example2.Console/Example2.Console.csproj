@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Example2.DomainModel\Example2.DomainModel.csproj" />
+    <ProjectReference Include="..\Exmple2.DataAccess\Example2.DataAccess.csproj" />
+  </ItemGroup>
+
+</Project>

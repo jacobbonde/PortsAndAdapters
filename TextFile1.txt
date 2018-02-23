@@ -1,0 +1,9 @@
+docker run -p 3306:3306  --name hexa-mysql -e MYSQL_ROOT_PASSWORD=bigsecret -d mysql:latest
+
+docker run -it --link hexa-mysql:mysql --rm mysql sh -c "exec mysql -h"$MYSQL_PORT_3306_TCP_ADDR" -P"$MYSQL_PORT_3306_TCP_PORT" -uroot -p"$MYSQL_ENV_MYSQL_ROOT_PASSWORD""
+
+
+create database hexa;
+use hexa
+create table drinks (drinker varchar(20), type varchar(20), time datetime);
+insert into drinks values ('Jacob', 'Beer', now());
