@@ -7,7 +7,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Example2.DomainModel\Example2.DomainModel.csproj" />
-    <ProjectReference Include="..\Exmple2.DataAccess\Example2.DataAccess.csproj" />
+    <ProjectReference Include="..\Example2.DataAccess\Example2.DataAccess.csproj" />
   </ItemGroup>
 
 </Project>

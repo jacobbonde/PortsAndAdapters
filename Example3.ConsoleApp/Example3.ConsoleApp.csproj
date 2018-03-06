@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary1\Example3.DomainModel.csproj" />
+    <ProjectReference Include="..\Example3.DomainModel\Example3.DomainModel.csproj" />
     <ProjectReference Include="..\Example3.DataAccess\Example3.DataAccess.csproj" />
   </ItemGroup>
 
