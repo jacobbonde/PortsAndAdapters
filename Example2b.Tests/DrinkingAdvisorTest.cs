@@ -1,23 +1,24 @@
-using Example3.DomainModel;
-using Xunit;
+using Example2b.DataAccess;
+using Example2b.DomainModel;
 using System.Collections.Generic;
+using Xunit;
 
-namespace Example3.Tests
+namespace Example2b.Tests
 {
   public class DrinkingAdvisorTest
   {
     [Fact]
     public void AdvisorSaysYesToFirstBeer()
     {
-      DrinkingAdvisor advisor = NewDrinkingAdvisor();
+      var advisor = NewAdvisor();
 
       Assert.True(advisor.BeerNow());
-    }
+    }    
 
     [Fact]
     public void AdvisorSaysYesToSecondBeer()
     {
-      var advisor = NewDrinkingAdvisor();
+      var advisor = NewAdvisor();
 
       advisor.BeerNow();
       Assert.True(advisor.BeerNow());
@@ -26,7 +27,7 @@ namespace Example3.Tests
     [Fact]
     public void AdvisorSaysYesToThirdBeer()
     {
-      var advisor = NewDrinkingAdvisor();
+      var advisor = NewAdvisor();
 
       advisor.BeerNow();
       advisor.BeerNow();
@@ -36,7 +37,7 @@ namespace Example3.Tests
     [Fact]
     public void AdvisorSaysYesToFourthBeer()
     {
-      var advisor = NewDrinkingAdvisor();
+      var advisor = NewAdvisor();
 
       advisor.BeerNow();
       advisor.BeerNow();
@@ -47,7 +48,7 @@ namespace Example3.Tests
     [Fact]
     public void AdvisorSaysNoToFifthBeer()
     {
-      var advisor = NewDrinkingAdvisor();
+      var advisor = NewAdvisor();
 
       advisor.BeerNow();
       advisor.BeerNow();
@@ -55,16 +56,12 @@ namespace Example3.Tests
       advisor.BeerNow();
       Assert.False(advisor.BeerNow());
     }
-    private static DrinkingAdvisor NewDrinkingAdvisor()
-    {
-      return new DrinkingAdvisor(new InMemoryImbibementRepository(), new MockEventPublisher());
-    }
-  }
 
-  internal class MockEventPublisher : IEventPublisher
-  {
-    public void Publish(BeerOrdered eventObject)
+    private static DrinkingAdvisor NewAdvisor()
     {
+      return new DrinkingAdvisor(
+				new InMemoryImbibementRepository(), 
+				new MockEventPublisher());
     }
   }
 
@@ -74,12 +71,19 @@ namespace Example3.Tests
 
     public void Add(Imbibement imbibement)
     {
-      this.imbibements.Add(imbibement);
+      imbibements.Add(imbibement);
     }
 
     public IEnumerable<Imbibement> Imbibements()
     {
       return imbibements;
+    }
+  }
+
+  internal class MockEventPublisher : IEventPublisher
+  {
+    public void Publish(BeerOrdered beerOrdered)
+    {
     }
   }
 }

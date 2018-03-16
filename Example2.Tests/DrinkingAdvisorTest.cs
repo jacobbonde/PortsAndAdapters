@@ -3,56 +3,56 @@ using Xunit;
 
 namespace Example2.Tests
 {
-    public class DrinkingAdvisorTest
+  public class DrinkingAdvisorTest
+  {
+    [Fact]
+    public void AdvisorSaysYesToFirstBeer()
     {
-		[Fact]
-        public void AdvisorSaysYesToFirstBeer()
-        {
-			var advisor = new DrinkingAdvisor();
+      var advisor = new DrinkingAdvisor();
 
-			Assert.True(advisor.BeerNow());
-        }
+      Assert.True(advisor.BeerNow());
+    }
 
-		[Fact]
-		public void AdvisorSaysYesToSecondBeer()
-		{
-			var advisor = new DrinkingAdvisor();
+    [Fact]
+    public void AdvisorSaysYesToSecondBeer()
+    {
+      var advisor = new DrinkingAdvisor();
 
-			advisor.BeerNow();
-			Assert.True(advisor.BeerNow());
-		}
+      advisor.BeerNow();
+      Assert.True(advisor.BeerNow());
+    }
 
-		[Fact]
-		public void AdvisorSaysYesToThirdBeer()
-		{
-			var advisor = new DrinkingAdvisor();
+    [Fact]
+    public void AdvisorSaysYesToThirdBeer()
+    {
+      var advisor = new DrinkingAdvisor();
 
-			advisor.BeerNow();
-			advisor.BeerNow();
-			Assert.True(advisor.BeerNow());
-		}
+      advisor.BeerNow();
+      advisor.BeerNow();
+      Assert.True(advisor.BeerNow());
+    }
 
-		[Fact]
-		public void AdvisorSaysYesToFourthBeer()
-		{
-			var advisor = new DrinkingAdvisor();
+    [Fact]
+    public void AdvisorSaysYesToFourthBeer()
+    {
+      var advisor = new DrinkingAdvisor();
 
-			advisor.BeerNow();
-			advisor.BeerNow();
-			advisor.BeerNow();		
-			Assert.True(advisor.BeerNow());
-		}
+      advisor.BeerNow();
+      advisor.BeerNow();
+      advisor.BeerNow();
+      Assert.True(advisor.BeerNow());
+    }
 
-		[Fact]
-		public void AdvisorSaysNoToFifthBeer()
-		{
-			var advisor = new DrinkingAdvisor();
+    [Fact]
+    public void AdvisorSaysNoToFifthBeer()
+    {
+      var advisor = new DrinkingAdvisor();
 
-			advisor.BeerNow();
-			advisor.BeerNow();
-			advisor.BeerNow();
-			advisor.BeerNow();
-			Assert.False(advisor.BeerNow());
-		}
-	}	
+      advisor.BeerNow();
+      advisor.BeerNow();
+      advisor.BeerNow();
+      advisor.BeerNow();
+      Assert.False(advisor.BeerNow());
+    }
+  }
 }

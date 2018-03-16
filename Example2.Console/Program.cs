@@ -19,9 +19,6 @@ namespace Example2.ConsoleApp
 					case 'b':
 						BeerNow();
 						break;
-					case 's':
-						Console.WriteLine("You asked: 'Should I have a soda now?'");
-						break;
 					default:
 						Console.WriteLine("Sorry, what?");
 						break;
@@ -31,7 +28,7 @@ namespace Example2.ConsoleApp
 
 		private static void BeerNow()
 		{
-			Console.WriteLine("You asked: 'Should I have a beer now?'");
+			Console.WriteLine("You asked: 'Can I have a beer, please?'");
 
 			var advisor = new DrinkingAdvisor();
 

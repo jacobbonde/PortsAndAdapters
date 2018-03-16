@@ -4,4 +4,8 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Example2b.DataAccess\Example2b.DataAccess.csproj" />
+  </ItemGroup>
+
 </Project>

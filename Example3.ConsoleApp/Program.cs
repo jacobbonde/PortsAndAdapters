@@ -1,5 +1,6 @@
 ﻿using Example3.DataAccess;
 using Example3.DomainModel;
+using Example3.Integrations;
 using System;
 
 namespace Example3.ConsoleApp
@@ -20,9 +21,6 @@ namespace Example3.ConsoleApp
 					case 'b':
 						BeerNow();
 						break;
-					case 's':
-						Console.WriteLine("You asked: 'Should I have a soda now?'");
-						break;
 					default:
 						Console.WriteLine("Sorry, what?");
 						break;
@@ -34,7 +32,9 @@ namespace Example3.ConsoleApp
 		{
 			Console.WriteLine("You asked: 'Should I have a beer now?'");
 
-			var advisor = new DrinkingAdvisor(new MySqlImbibementRepository());
+			var advisor = new DrinkingAdvisor(
+							new MySqlImbibementRepository(), 
+							new MailEventPublisher());
 
 			if (advisor.BeerNow())
 			{

@@ -1,21 +1,21 @@
-﻿using System;
+﻿using Example2b.DataAccess;
+using System;
 using System.Linq;
 
-namespace Example3.DomainModel
+namespace Example2b.DomainModel
 {
   public class DrinkingAdvisor
   {
-    private readonly IEventPublisher eventPublisher;
     private readonly IImbibementRepository imbibementRepository;
+    private readonly IEventPublisher eventPublisher;
 
     public DrinkingAdvisor(
-            IImbibementRepository imbibementRepository,
-            IEventPublisher eventPublisher)
+			IImbibementRepository imbibementRepository,
+			IEventPublisher eventPublisher)
     {
-      this.eventPublisher = eventPublisher;
       this.imbibementRepository = imbibementRepository;
+      this.eventPublisher = eventPublisher;
     }
-
     public bool BeerNow()
     {
       var imbibements = imbibementRepository.Imbibements();
